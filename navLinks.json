@@ -1,0 +1,25 @@
+{
+    "navLinks": [
+      {
+        "name": "Skills",
+        "href": "#skills"
+      },
+      {
+        "name": "Projects",
+        "href": "#projects"
+      },
+      {
+        "name": "Awards",
+        "href": "#awards"
+      },
+      {
+        "name": "Degrees",
+        "href": "#degrees"
+      },
+      {
+        "name": "Contact",
+        "href": "#contact"
+      }
+    ]
+  }
+  

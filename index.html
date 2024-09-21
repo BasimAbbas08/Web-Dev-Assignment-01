@@ -15,6 +15,33 @@
              behavior: 'smooth'
              });
         }
+
+        // Fetch and display skills
+        window.onload = function() {
+            fetch('skills.json')
+                .then(response => response.json())
+                .then(data => {
+                    displaySkills(data.skills.hardSkills, data.skills.softSkills);
+                })
+                .catch(error => console.error('Error fetching skills:', error));
+        }
+
+        function displaySkills(hardSkills, softSkills) {
+            const hardSkillsContainer = document.getElementById('hard-skills-list');
+            const softSkillsContainer = document.getElementById('soft-skills-list');
+
+            hardSkills.forEach(skill => {
+                const li = document.createElement('li');
+                li.textContent = skill;
+                hardSkillsContainer.appendChild(li);
+            });
+
+            softSkills.forEach(skill => {
+                const li = document.createElement('li');
+                li.textContent = skill;
+                softSkillsContainer.appendChild(li);
+            });
+        }
     </script>
 </head>
 <body>
@@ -23,18 +50,21 @@
         <nav>
             <div class="logo">Basim Abbas</div>
             <ul class="nav-links">
+                <!-- navLinks should appear-->
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#awards">Awards</a></li>
                 <li><a href="#degrees">Degrees</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            
             <div class="languages">
                 <a href="#" lang="ar">العربية</a> | 
                 <a href="#" lang="fr">Français</a> | 
                 <a href="#" lang="ur">اردو</a>
             </div>
         </nav> 
+        
         <section id="motto">
             <h2>Motto</h2>
             <p lang="ar" class="motto-text">مع القوة العظيمة تأتي مسؤولية عظيمة</p>
@@ -46,6 +76,19 @@
     <main>
         <!-- Section: Skills -->
         <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <div class="hard-skills">
+                    <h3>Hard Skills</h3>
+                    <ul id="hard-skills-list"></ul>
+                </div>
+                <div class="soft-skills">
+                    <h3>Soft Skills</h3>
+                    <ul id="soft-skills-list"></ul>
+                </div>
+            </div>
+        </section>
+        <!-- <section id="skills">
             <h2>Skills</h2>
             <div class="skills-container">
                 <div class="hard-skills">
@@ -67,7 +110,7 @@
                     </ul>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <!-- Section: Projects -->
         <section id="projects">
